@@ -1,0 +1,356 @@
+[gd_scene load_steps=27 format=3 uid="uid://c3plxdludxsq7"]
+
+[ext_resource type="Script" path="res://Scenes/Worlds/world_base.gd" id="1_2xlhu"]
+[ext_resource type="Texture2D" uid="uid://c3jhgspceqyph" path="res://Assets/Tiles/Tile_Grass.png" id="1_533kj"]
+[ext_resource type="Texture2D" uid="uid://d4m0qsnyewao0" path="res://Assets/Tiles/Tile_Sand.png" id="2_f2mdx"]
+[ext_resource type="Texture2D" uid="uid://bh88hdfvbdhu" path="res://Assets/Tiles/Tile_Water.png" id="2_gklig"]
+[ext_resource type="Texture2D" uid="uid://dkoe3nk5ow306" path="res://Assets/Tiles/Tile_Plain.png" id="2_itx2h"]
+[ext_resource type="Texture2D" uid="uid://d3hbeyjllrseo" path="res://Assets/Tiles/Tile_Pilar.png" id="3_0jw8e"]
+[ext_resource type="Texture2D" uid="uid://3jnkg6ir8ltc" path="res://Assets/Tiles/Tile_Road.png" id="5_gdhpd"]
+[ext_resource type="Texture2D" uid="uid://b7wwqohd6hm2n" path="res://Assets/Tiles/Tile_Plank.png" id="5_tkqr1"]
+[ext_resource type="PackedScene" uid="uid://k7hrd18qc5p7" path="res://Scenes/Characters/npc.tscn" id="6_si364"]
+[ext_resource type="Texture2D" uid="uid://drubhdi4qom43" path="res://Assets/Tiles/Tile_Ground.png" id="9_psnhy"]
+[ext_resource type="Script" path="res://Scenes/Worlds/TileMap.gd" id="10_odite"]
+[ext_resource type="PackedScene" uid="uid://bqve6ii5dw7us" path="res://Scenes/Battle/target.tscn" id="13_m2srr"]
+[ext_resource type="PackedScene" uid="uid://vcbr5vy1hjxm" path="res://Scenes/Objects/area_map.tscn" id="15_huj54"]
+[ext_resource type="PackedScene" uid="uid://d00eu5fvyayec" path="res://Scenes/Battle/pion.tscn" id="15_xvyka"]
+[ext_resource type="PackedScene" uid="uid://d2b7rqffht1v5" path="res://Scenes/Characters/player.tscn" id="16_dverl"]
+[ext_resource type="Script" path="res://Scenes/Worlds/Mode_Battle.gd" id="17_37818"]
+[ext_resource type="PackedScene" uid="uid://b6o2a7nbc11hm" path="res://Scenes/Objects/flag.tscn" id="19_4olmf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvum2"]
+resource_name = "Plain"
+texture = ExtResource("2_itx2h")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 0, 0, 30, 50, 0, 0, -30)
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 0, 0, 30, 50, 0, 0, -30)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2g83i"]
+resource_name = "Pilar"
+texture = ExtResource("3_0jw8e")
+texture_region_size = Vector2i(100, 200)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 70)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -30, -50, 0, 0, 30, 50, 0)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 70)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -30, -50, 0, 0, 30, 50, 0)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 70)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -30, -50, 0, 0, 30, 50, 0)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 70)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -30, -50, 0, 0, 30, 50, 0)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 70)
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -30, -50, 0, 0, 30, 50, 0)
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, 70)
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgolp"]
+resource_name = "Grass"
+texture = ExtResource("1_533kj")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/y_sort_origin = -50
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/y_sort_origin = -50
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/y_sort_origin = -50
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/y_sort_origin = -50
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/y_sort_origin = -50
+6:0/0/probability = 0.4
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0 = 0
+7:0/0/y_sort_origin = -50
+7:0/0/probability = 0.4
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5st1m"]
+resource_name = "Road"
+texture = ExtResource("5_gdhpd")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/y_sort_origin = -50
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/y_sort_origin = -50
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c0dsn"]
+resource_name = "Plank"
+texture = ExtResource("5_tkqr1")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/probability = 0.3
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3kjh"]
+resource_name = "Water"
+texture = ExtResource("2_gklig")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 0, 0, 30, 50, 0, 0, -30)
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 0, 0, 30, 50, 0, 0, -30)
+2:0/0 = 0
+2:0/0/y_sort_origin = -50
+2:0/0/probability = 0.4
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 0, 0, 30, 50, 0, 0, -30)
+3:0/0 = 0
+3:0/0/y_sort_origin = -50
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, 0, 0, 30, 50, 0, 0, -30)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chsqt"]
+resource_name = "Sand"
+texture = ExtResource("2_f2mdx")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vrutj"]
+resource_name = "Ground"
+texture = ExtResource("9_psnhy")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/y_sort_origin = -50
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/y_sort_origin = -50
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/y_sort_origin = -50
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_fjw66"]
+tile_shape = 1
+tile_size = Vector2i(100, 60)
+physics_layer_0/collision_layer = 1
+sources/6 = SubResource("TileSetAtlasSource_chsqt")
+sources/4 = SubResource("TileSetAtlasSource_b3kjh")
+sources/14 = SubResource("TileSetAtlasSource_hgolp")
+sources/1 = SubResource("TileSetAtlasSource_pvum2")
+sources/11 = SubResource("TileSetAtlasSource_2g83i")
+sources/3 = SubResource("TileSetAtlasSource_c0dsn")
+sources/8 = SubResource("TileSetAtlasSource_vrutj")
+sources/23 = SubResource("TileSetAtlasSource_5st1m")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [23, Vector2i(0, 0)], [1, Vector2i(0, 0)], [4, Vector2i(1, 0)], [2, Vector2i(0, 0)], [23, Vector2i(1, 0)], [3, Vector2i(0, 0)], [11, Vector2i(2, 0)], [3, Vector2i(1, 0)], [14, Vector2i(1, 0)], [3, Vector2i(2, 0)], [14, Vector2i(2, 0)], [4, Vector2i(0, 0)], [12, Vector2i(3, 0)], [5, Vector2i(0, 0)], [23, Vector2i(2, 0)], [7, Vector2i(0, 0)], [23, Vector2i(3, 0)], [8, Vector2i(0, 0)], [11, Vector2i(4, 0)], [9, Vector2i(0, 0)], [11, Vector2i(5, 0)], [10, Vector2i(0, 0)], [14, Vector2i(4, 0)], [11, Vector2i(0, 0)], [14, Vector2i(5, 0)], [12, Vector2i(0, 0)], [14, Vector2i(6, 0)], [13, Vector2i(0, 0)], [14, Vector2i(7, 0)]]
+
+[node name="Wolrd_Base" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_2xlhu")
+mode = 1
+
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="Map"]
+z_index = -2
+y_sort_enabled = true
+tile_set = SubResource("TileSet_fjw66")
+format = 2
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(983046, 14, 0, 917511, 196622, 0, 851975, 196622, 0, 786440, 262158, 0, 720904, 393230, 0, 655369, 196622, 0, 589833, 327694, 0, 524298, 393230, 0, 458762, 65550, 0, 524299, 196622, 0, 589835, 65550, 0, 655372, 262158, 0, 720908, 196622, 0, 786445, 196622, 0, 983054, 65550, 0, 1048590, 327694, 0, 1114125, 196622, 0, 1179661, 262158, 0, 1507337, 262158, 0, 1441801, 65550, 0, 1376264, 131086, 0, 1310728, 65550, 0, 1245191, 196622, 0, 1179655, 65550, 0, 1114118, 393230, 0, 1048582, 14, 0, 1179657, 262158, 0, 1114121, 458766, 0, 1048586, 262158, 0, 983050, 262158, 0, 917515, 14, 0, 851979, 327694, 0, 786444, 196622, 0, 720907, 131086, 0, 655371, 196622, 0, 589834, 196622, 0, 655370, 196622, 0, 720905, 131086, 0, 786441, 262158, 0, 851976, 65550, 0, 917512, 131086, 0, 983047, 262158, 0, 1048583, 65550, 0, 1114119, 327694, 0, 1048584, 14, 0, 983048, 196622, 0, 917513, 65550, 0, 851977, 327694, 0, 786442, 393230, 0, 720906, 131086, 0, 786443, 14, 0, 851978, 393230, 0, 917514, 458766, 0, 983049, 327694, 0, 1048585, 458766, 0, 1114120, 196622, 0, 1179656, 131086, 0, 1245192, 131086, 0, 1310729, 65550, 0, 1245193, 131086, 0, 1179658, 131086, 0, 1114122, 327694, 0, 1048587, 131086, 0, 983051, 458766, 0, 917516, 327694, 0, 851980, 196622, 0, 983052, 327694, 0, 1048588, 131086, 0, 1114123, 327694, 0, 1245194, 131086, 0, 1310730, 327694, 0, 1376265, 65550, 0, 1441802, 262158, 0, 1376266, 458766, 0, 1310733, 327694, 0, 1245197, 262158, 0, 1179662, 327694, 0, 1114126, 458766, 0, 1048591, 393230, 0, 1572874, 65550, 0, 1638410, 327694, 0, 1572875, 14, 0, 1507338, 458766, 0, 1441803, 327694, 0, 1507339, 14, 0, 1441804, 131086, 0, 1376268, 262158, 0, 1310732, 131086, 0, 1376267, 458766, 0, 1245196, 65550, 0, 1179660, 327694, 0, 1245195, 131086, 0, 1310731, 131086, 0, 1179659, 65550, 0, 1114124, 131086, 0, 1048589, 131086, 0, 983053, 458766, 0, 917518, 262158, 0, 851981, 196622, 0, 917517, 393230, 0)
+script = ExtResource("10_odite")
+
+[node name="Decorations" type="Node2D" parent="Map"]
+y_sort_enabled = true
+
+[node name="Flag" parent="Map/Decorations" instance=ExtResource("19_4olmf")]
+position = Vector2(1150, 570)
+model = 2
+
+[node name="Mode_Explore" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="NPC" parent="Mode_Explore" instance=ExtResource("6_si364")]
+position = Vector2(850, 570)
+
+[node name="Player" parent="Mode_Explore" instance=ExtResource("16_dverl")]
+position = Vector2(950, 570)
+
+[node name="PauseMenu" type="Control" parent="Mode_Explore/Player"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="ExitButton" type="Button" parent="Mode_Explore/Player/PauseMenu"]
+layout_mode = 0
+offset_left = -30.0
+offset_right = 70.0
+offset_bottom = 31.0
+text = "TitleScreen"
+
+[node name="Label" type="Label" parent="Mode_Explore/Player/PauseMenu"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -90.0
+offset_right = 57.0
+offset_bottom = -67.0
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Area_Map" parent="Mode_Explore" instance=ExtResource("15_huj54")]
+
+[node name="Mode_Battle" type="Node2D" parent="."]
+visible = false
+y_sort_enabled = true
+script = ExtResource("17_37818")
+
+[node name="Target" parent="Mode_Battle" instance=ExtResource("13_m2srr")]
+z_index = -1
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="Mode_Battle/Target"]
+position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="Mode_Battle/Target/Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -180.0
+offset_right = 162.0
+offset_bottom = -70.0
+theme_override_font_sizes/font_size = 50
+text = "Misi Berhasil!"
+horizontal_alignment = 1
+
+[node name="Pion" parent="Mode_Battle" instance=ExtResource("15_xvyka")]
+position = Vector2(1100, 660)
+team = 1
+maxhp = 100
+atk = 40
+
+[node name="Pion4" parent="Mode_Battle" instance=ExtResource("15_xvyka")]
+position = Vector2(1250, 690)
+character = 1
+maxhp = 100
+atk = 40
+
+[node name="Pion2" parent="Mode_Battle" instance=ExtResource("15_xvyka")]
+position = Vector2(1350, 630)
+character = 3
+team = 2
+maxhp = 100
+
+[node name="Pion3" parent="Mode_Battle" instance=ExtResource("15_xvyka")]
+position = Vector2(1200, 600)
+character = 2
+team = 2
+maxhp = 100
+
+[node name="Control" type="Control" parent="."]
+visible = false
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = -40.0
+offset_right = 90.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1450.0
+offset_top = 610.0
+offset_right = 1556.0
+offset_bottom = 636.0
+text = "Mode Explore"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 640.0
+offset_right = 1610.0
+offset_bottom = 671.0
+text = "Change Mode"
+
+[connection signal="flag_claim" from="Map/Decorations/Flag" to="." method="_on_flag_flag_claim"]
+[connection signal="Battle" from="Mode_Explore/Player" to="." method="_on_player_battle"]
+[connection signal="pressed" from="Mode_Explore/Player/PauseMenu/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="exit" from="Mode_Battle/Target" to="." method="_on_target_exit"]
+[connection signal="move" from="Mode_Battle/Target" to="." method="_on_target_move"]
+[connection signal="object_here" from="Mode_Battle/Target" to="." method="_on_target_object_here"]
+[connection signal="Attacked" from="Mode_Battle/Pion" to="." method="_on_pion_attacked"]
+[connection signal="Attacked" from="Mode_Battle/Pion4" to="." method="_on_pion_attacked"]
+[connection signal="Attacked" from="Mode_Battle/Pion2" to="." method="_on_pion_attacked"]
+[connection signal="Attacked" from="Mode_Battle/Pion3" to="." method="_on_pion_attacked"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

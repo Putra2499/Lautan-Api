@@ -1,0 +1,228 @@
+[gd_scene load_steps=17 format=3 uid="uid://d00eu5fvyayec"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/pion.gd" id="1_2xfli"]
+[ext_resource type="Texture2D" uid="uid://ixnhbc1xaln2" path="res://Assets/Decorations/Marks/Mark.png" id="2_ti1cf"]
+[ext_resource type="PackedScene" uid="uid://bqve6ii5dw7us" path="res://Scenes/Battle/target.tscn" id="3_h5ab5"]
+[ext_resource type="Texture2D" uid="uid://hmw5p8ie6kt7" path="res://Assets/Sprites/Sprite-Japan_Army.png" id="4_mo8qw"]
+[ext_resource type="Texture2D" uid="uid://dn0eqi4ys3hgi" path="res://Assets/Sprites/Sprite-TRI(1).png" id="4_q54sx"]
+[ext_resource type="Texture2D" uid="uid://d4i7lgvmyh3tn" path="res://Assets/Sprites/Sprite-Japan_Army(2).png" id="5_kxm0q"]
+[ext_resource type="Texture2D" uid="uid://co8qrt08qoyue" path="res://Assets/Sprites/Player_Sprite_0.png" id="6_ovhc4"]
+[ext_resource type="Texture2D" uid="uid://cv8k5fom1u8nr" path="res://Assets/Sprites/Player_Sprite_01.png" id="6_ta8c8"]
+[ext_resource type="Texture2D" uid="uid://cb5dv1hx0fd8p" path="res://Assets/Sprites/Sprite-NICA_Army(1).png" id="8_3qovg"]
+[ext_resource type="Texture2D" uid="uid://bmrgh1hk5kxrk" path="res://Assets/Sprites/Sprite-TRI(2).png" id="8_4vbir"]
+[ext_resource type="Texture2D" uid="uid://bdxeuagw6u8vn" path="res://Assets/Sprites/Sprite-NICA_Army(2).png" id="9_ge3oa"]
+
+[sub_resource type="Animation" id="Animation_1stv6"]
+resource_name = "Floating_Mark"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mark/Point:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-6.01853e-36, -90), Vector2(-6.01853e-36, -92), Vector2(-6.01853e-36, -90), Vector2(-6.01853e-36, -87), Vector2(-6.01853e-36, -90)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75waq"]
+_data = {
+"Floating_Mark": SubResource("Animation_1stv6")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obe2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mo8qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kxm0q")
+}],
+"loop": true,
+"name": &"Japan",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ovhc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ta8c8")
+}],
+"loop": true,
+"name": &"MC",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3qovg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ge3oa")
+}],
+"loop": true,
+"name": &"NICA",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q54sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4vbir")
+}],
+"loop": true,
+"name": &"TRI",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_wxgi8"]
+resource_name = "Attacked"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.49, 0.1666, 0.1666, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ljup"]
+_data = {
+"Attacked": SubResource("Animation_wxgi8")
+}
+
+[node name="Pion" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_2xfli")
+speed = 5
+maxhp = null
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-20, 0, 0, 10, 20, 0, 0, -10)
+
+[node name="DetecArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetecArea"]
+polygon = PackedVector2Array(-350, 0, 0, 210, 350, 0, 0, -210)
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 30, 50, 0, 0, -30, -50, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+polygon = PackedVector2Array(0, 20, 40, 0, 0, -20, -40, 0)
+
+[node name="Mark" type="Node2D" parent="."]
+
+[node name="Point" type="Sprite2D" parent="Mark"]
+visible = false
+position = Vector2(-6.01853e-36, -88.3887)
+scale = Vector2(0.625, 0.833333)
+texture = ExtResource("2_ti1cf")
+hframes = 2
+vframes = 2
+
+[node name="Target" parent="Mark" instance=ExtResource("3_h5ab5")]
+visible = false
+modulate = Color(0, 1, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mark"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_75waq")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -40)
+sprite_frames = SubResource("SpriteFrames_obe2c")
+animation = &"MC"
+frame_progress = 0.711536
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ljup")
+}
+
+[node name="Range" type="Node2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -83.0
+offset_right = -20.0
+offset_bottom = -83.0
+
+[node name="Atk_Button" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 58.0
+offset_bottom = 4.0
+text = "SERANG"
+
+[node name="HP_Bar" type="ColorRect" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 13.0
+offset_right = 80.0
+offset_bottom = 19.0
+color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+metadata/_edit_group_ = true
+
+[node name="Bar_base" type="ColorRect" parent="UI/HP_Bar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 39.0
+offset_bottom = 5.0
+color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[node name="HP" type="ColorRect" parent="UI/HP_Bar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 39.0
+offset_bottom = 5.0
+color = Color(0.247059, 0.568627, 0.262745, 1)
+
+[node name="HP" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = -7.0
+offset_right = 80.0
+offset_bottom = 19.0
+text = "100"
+horizontal_alignment = 1
+
+[node name="DeadTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="DetecArea" to="." method="_on_detec_area_body_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="UI/Atk_Button" to="." method="_on_atk_button_pressed"]
+[connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]

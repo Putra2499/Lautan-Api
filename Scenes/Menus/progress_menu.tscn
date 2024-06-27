@@ -1,0 +1,187 @@
+[gd_scene load_steps=2 format=3 uid="uid://ga4d8t8mjd5w"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/progress_menu.gd" id="1_bwyqh"]
+
+[node name="ProgressMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bwyqh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.968627, 0.937255, 0.901961, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 130.0
+offset_right = 430.0
+offset_bottom = 520.0
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 360.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 30
+text = "SAVE / LOAD"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 30.0
+offset_right = 1130.0
+offset_bottom = 61.0
+text = "X"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 130.0
+offset_top = 190.0
+offset_right = 1120.0
+offset_bottom = 300.0
+
+[node name="Label2" type="Label" parent="Control/Button3"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 93.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "PEMAIN : P24"
+
+[node name="Label" type="Label" parent="Control/Button3"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 25
+text = "LVL : 1"
+
+[node name="Label3" type="Label" parent="Control/Button3"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 60.0
+offset_right = 646.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "23/04/2024"
+
+[node name="Label4" type="Label" parent="Control/Button3"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 20.0
+offset_right = 593.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 25
+text = "CHAPTER : 1"
+
+[node name="Label5" type="Label" parent="Control/Button3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button4" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 130.0
+offset_top = 330.0
+offset_right = 1120.0
+offset_bottom = 440.0
+
+[node name="Label2" type="Label" parent="Control/Button4"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 93.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "PEMAIN : -"
+
+[node name="Label" type="Label" parent="Control/Button4"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 25
+text = "LVL : -"
+
+[node name="Label3" type="Label" parent="Control/Button4"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 60.0
+offset_right = 646.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "DD/MM/YYYY"
+
+[node name="Label4" type="Label" parent="Control/Button4"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 20.0
+offset_right = 593.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 25
+text = "CHAPTER : -"
+
+[node name="Button5" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 130.0
+offset_top = 470.0
+offset_right = 1120.0
+offset_bottom = 580.0
+
+[node name="Label2" type="Label" parent="Control/Button5"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 93.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "PEMAIN : -"
+
+[node name="Label" type="Label" parent="Control/Button5"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 25
+text = "LVL : -"
+
+[node name="Label3" type="Label" parent="Control/Button5"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 60.0
+offset_right = 646.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 25
+text = "DD/MM/YYYY"
+
+[node name="Label4" type="Label" parent="Control/Button5"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 20.0
+offset_right = 593.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 25
+text = "CHAPTER : -"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

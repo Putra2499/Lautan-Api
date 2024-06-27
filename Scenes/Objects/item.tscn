@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3tl4gqa3qqi8"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/item.gd" id="1_bh37n"]
+[ext_resource type="Texture2D" uid="uid://b3mh32duiiiya" path="res://Assets/Decorations/Items/Bag.png" id="2_e4n1o"]
+[ext_resource type="Texture2D" uid="uid://82a16dh0prwp" path="res://Assets/Sprites/Shadow.png" id="2_ffmfq"]
+[ext_resource type="Texture2D" uid="uid://cghlptvhtem4a" path="res://Assets/Decorations/Items/Leaf(1).png" id="3_iurph"]
+[ext_resource type="Texture2D" uid="uid://chbx6cvw5xeko" path="res://Assets/Decorations/Items/Leaf(2).png" id="4_4kh0a"]
+[ext_resource type="Texture2D" uid="uid://cai8hx1l6ufld" path="res://Assets/Decorations/Items/Leaf(3).png" id="5_b8br8"]
+[ext_resource type="Texture2D" uid="uid://cccsx22ay3trv" path="res://Assets/Decorations/Items/Leaf(4).png" id="6_vs3ai"]
+[ext_resource type="Texture2D" uid="uid://dmuk47b46g0cg" path="res://Assets/Decorations/Items/Leaf(5).png" id="7_foyyh"]
+[ext_resource type="Texture2D" uid="uid://do4tmbr6ew2ep" path="res://Assets/Sprout/Sprout(1).png" id="8_gmt8n"]
+[ext_resource type="Texture2D" uid="uid://cmiapfmen6rap" path="res://Assets/Sprout/Sprout(2).png" id="9_tjcs8"]
+[ext_resource type="Texture2D" uid="uid://ceoklgh8sdu5t" path="res://Assets/Sprout/Sprout(3).png" id="10_vhi8u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1r5df"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e4n1o")
+}],
+"loop": true,
+"name": &"Bag",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iurph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4kh0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b8br8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vs3ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b8br8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4kh0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_iurph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_foyyh")
+}],
+"loop": true,
+"name": &"Leaf",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("8_gmt8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tjcs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vhi8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tjcs8")
+}],
+"loop": true,
+"name": &"Sprout",
+"speed": 5.0
+}]
+
+[node name="Item" type="StaticBody2D"]
+script = ExtResource("1_bh37n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 10, 20, 0, 0, -10, -20, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 20, 40, 0, 0, -20, -40, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("2_ffmfq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1r5df")
+animation = &"Bag"
+frame_progress = 0.754911
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

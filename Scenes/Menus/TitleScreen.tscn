@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://3gxt11qh5wam"]
+
+[ext_resource type="Theme" uid="uid://cfl5bg8esol2n" path="res://Scenes/Menus/Base_theme.tres" id="1_55gs1"]
+[ext_resource type="FontFile" uid="uid://p35ep0h6jxun" path="res://Assets/Fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf" id="1_uqwca"]
+[ext_resource type="Script" path="res://Scenes/Menus/TitleScreen.gd" id="2_ynv72"]
+[ext_resource type="Texture2D" uid="uid://cfl0jsl6j6mlr" path="res://Assets/BackGround/background.png" id="3_sfkq4"]
+[ext_resource type="Texture2D" uid="uid://bhk65om6hgic6" path="res://Assets/BackGround/Title__LautanApi__1.png" id="4_mqes4"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_55gs1")
+script = ExtResource("2_ynv72")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1500.0
+offset_bottom = 800.0
+color = Color(0.968627, 0.937255, 0.901961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 150.0
+offset_top = 30.0
+offset_right = 930.0
+offset_bottom = 250.0
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(594.104, 315.75)
+scale = Vector2(3.12687, 3.12687)
+texture = ExtResource("3_sfkq4")
+
+[node name="TitleLautanApi1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(560, 180)
+scale = Vector2(0.775, 0.635)
+texture = ExtResource("4_mqes4")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 206.0
+offset_top = 38.0
+offset_right = 979.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("1_uqwca")
+theme_override_font_sizes/font_size = 200
+text = "Lautan Api"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 210.0
+offset_top = 34.0
+offset_right = 983.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0.498039, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uqwca")
+theme_override_font_sizes/font_size = 200
+text = "Lautan Api"
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 1
+offset_left = 350.0
+offset_top = 350.0
+offset_right = 830.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 40
+text = "Lanjut Permainan"
+
+[node name="New" type="Button" parent="."]
+layout_mode = 1
+offset_left = 350.0
+offset_top = 450.0
+offset_right = 830.0
+offset_bottom = 527.0
+theme_override_font_sizes/font_size = 40
+text = "Permainan Baru"
+
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="New" to="." method="_on_new_pressed"]

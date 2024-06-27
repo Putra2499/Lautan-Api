@@ -1,0 +1,161 @@
+[gd_scene load_steps=4 format=3 uid="uid://crrwltuigi0dh"]
+
+[ext_resource type="PackedScene" uid="uid://c3plxdludxsq7" path="res://Scenes/Worlds/world_base.tscn" id="1_xtnds"]
+[ext_resource type="PackedScene" uid="uid://b6o2a7nbc11hm" path="res://Scenes/Objects/flag.tscn" id="2_1mfau"]
+[ext_resource type="PackedScene" uid="uid://jn0j8yun1ur6" path="res://Scenes/Objects/building.tscn" id="2_7anwg"]
+
+[node name="Map_Pabrik" instance=ExtResource("1_xtnds")]
+
+[node name="TileMap" parent="Map" index="0"]
+layer_0/tile_data = PackedInt32Array(983046, 14, 0, 917511, 196622, 0, 851975, 196622, 0, 786440, 262158, 0, 720904, 393230, 0, 655369, 196622, 0, 589833, 327694, 0, 524298, 393230, 0, 458762, 65550, 0, 524299, 196622, 0, 589835, 65550, 0, 655372, 262158, 0, 720908, 196622, 0, 786445, 196622, 0, 983054, 65550, 0, 1048590, 327694, 0, 1114125, 196622, 0, 1179661, 262158, 0, 1507337, 262158, 0, 1441801, 65550, 0, 1376264, 131086, 0, 1310728, 65550, 0, 1245191, 196622, 0, 1179655, 65550, 0, 1114118, 393230, 0, 1048582, 14, 0, 1179657, 262158, 0, 1114121, 458766, 0, 1048586, 262158, 0, 983050, 262158, 0, 917515, 14, 0, 851979, 327694, 0, 786444, 196622, 0, 720907, 131086, 0, 655371, 196622, 0, 589834, 196622, 0, 655370, 196622, 0, 720905, 131086, 0, 786441, 262158, 0, 851976, 65550, 0, 917512, 131086, 0, 983047, 262158, 0, 1048583, 65550, 0, 1114119, 327694, 0, 1048584, 14, 0, 983048, 196622, 0, 917513, 65550, 0, 851977, 327694, 0, 786442, 393230, 0, 720906, 131086, 0, 786443, 14, 0, 851978, 393230, 0, 917514, 458766, 0, 983049, 327694, 0, 1048585, 458766, 0, 1114120, 196622, 0, 1179656, 131086, 0, 1245192, 131086, 0, 1310729, 65550, 0, 1245193, 131086, 0, 1179658, 131086, 0, 1114122, 327694, 0, 1048587, 131086, 0, 983051, 458766, 0, 917516, 327694, 0, 851980, 196622, 0, 983052, 327694, 0, 1048588, 131086, 0, 1114123, 327694, 0, 1245194, 131086, 0, 1310730, 327694, 0, 1376265, 65550, 0, 1441802, 262158, 0, 1376266, 458766, 0, 1310733, 327694, 0, 1245197, 262158, 0, 1179662, 327694, 0, 1114126, 458766, 0, 1048591, 393230, 0, 1572874, 196622, 0, 1638410, 14, 0, 1572875, 262158, 0, 1507338, 65550, 0, 1441803, 14, 0, 1507339, 327694, 0, 1441804, 262158, 0, 1376268, 393230, 0, 1310732, 393230, 0, 1376267, 262158, 0, 1245196, 65550, 0, 1179660, 65550, 0, 1245195, 14, 0, 1310731, 327694, 0, 1179659, 14, 0, 1114124, 393230, 0, 1048589, 65550, 0, 983053, 131086, 0, 917518, 131086, 0, 851981, 262158, 0, 917517, 458766, 0, 327690, 1, 0, 393226, 1, 0, 458761, 1, 0, 524297, 1, 0, 589832, 1, 0, 655368, 1, 0, 720903, 1, 0, 786439, 1, 0, 851974, 1, 0, 917510, 1, 0, 983045, 1, 0, 1048581, 1, 0, 1114116, 1, 0, 1179652, 1, 0, 1245187, 1, 0, 1310723, 1, 0, 1376258, 1, 0, 262155, 1, 0, 196619, 1, 0, 131084, 1, 0, 196620, 1, 0, 262157, 1, 0, 327693, 1, 0, 393230, 1, 0, 458766, 1, 0, 524303, 1, 0, 589839, 1, 0, 655376, 1, 0, 720912, 1, 0, 786449, 1, 0, 1048592, 1, 0, 1114127, 1, 0, 1179663, 1, 0, 1245198, 1, 0, 1310734, 1, 0, 1376269, 1, 0, 1441805, 1, 0, 1507340, 1, 0, 1572876, 1, 0, 1638411, 1, 0, 1703947, 1, 0, 1769482, 1, 0, 1835018, 1, 0, 1900553, 1, 0, 1966089, 1, 0, 2031624, 1, 0, 2097160, 1, 0, 1441795, 1, 0, 1507331, 1, 0, 1572868, 1, 0, 1638404, 1, 0, 1703941, 1, 0, 2031623, 1, 0, 851985, 1, 0, 917521, 1, 0, 983056, 1, 0, 786446, 131086, 0, 720910, 196622, 0, 655375, 196622, 0, 589838, 131086, 0, 524302, 131086, 0, 458765, 65550, 0, 393229, 14, 0, 327692, 393230, 0, 262156, 14, 0, 327691, 393230, 0, 393227, 327694, 0, 458763, 327694, 0, 393228, 327694, 0, 458764, 131086, 0, 524300, 393230, 0, 589836, 14, 0, 524301, 458766, 0, 589837, 65550, 0, 655373, 65550, 0, 720909, 262158, 0, 655374, 327694, 0, 720911, 196622, 0, 786447, 458766, 0, 851982, 196622, 0, 917519, 327694, 0, 851983, 262158, 0, 786448, 131086, 0, 851984, 262158, 0, 917520, 458766, 0, 983055, 65550, 0, 1769480, 393230, 0, 1703945, 262158, 0, 1638409, 131086, 0, 1572873, 131086, 0, 1507336, 14, 0, 1441800, 131086, 0, 1376263, 65550, 0, 1310727, 327694, 0, 1245190, 65550, 0, 1179654, 65550, 0, 1114117, 65550, 0, 1179653, 196622, 0, 1245188, 327694, 0, 1310724, 262158, 0, 1376259, 65550, 0, 1441796, 196622, 0, 1376260, 14, 0, 1310725, 131086, 0, 1245189, 14, 0, 1310726, 65550, 0, 1376261, 65550, 0, 1441797, 262158, 0, 1507332, 14, 0, 1572869, 131086, 0, 1507333, 327694, 0, 1441798, 327694, 0, 1376262, 131086, 0, 1441799, 196622, 0, 1507334, 262158, 0, 1572870, 131086, 0, 1638405, 262158, 0, 1703942, 131086, 0, 1638406, 458766, 0, 1572871, 65550, 0, 1507335, 131086, 0, 1572872, 327694, 0, 1638407, 327694, 0, 1703943, 458766, 0, 1769478, 65550, 0, 1835014, 131086, 0, 1769477, 327694, 0, 1835013, 196622, 0, 1769476, 327694, 0, 1703940, 65550, 0, 1638403, 327694, 0, 1572867, 14, 0, 1507330, 14, 0, 1441794, 65537, 0, 1572866, 327694, 0, 1638402, 131086, 0, 1703938, 23, 0, 1769474, 65559, 0, 1703939, 196622, 0, 1769475, 327694, 0, 1835011, 196631, 0, 1900546, 23, 0, 1835010, 65559, 0, 1966082, 131095, 0, 2031618, 23, 0, 1966083, 23, 0, 1900547, 131095, 0, 1835012, 393230, 0, 1900548, 196622, 0, 1966084, 196631, 0, 2031619, 23, 0, 2097155, 65559, 0, 2097156, 65559, 0, 2031620, 196631, 0, 1966085, 196622, 0, 1900549, 131086, 0, 1966086, 262158, 0, 1900550, 458766, 0, 1835015, 14, 0, 1769479, 131086, 0, 1703944, 327694, 0, 1638408, 131086, 0, 1835016, 14, 0, 1900551, 14, 0, 1966087, 196622, 0, 2031622, 262158, 0, 2097158, 458766, 0, 2031621, 196622, 0, 2097157, 131095, 0, 2097159, 196622, 0, 1966088, 196622, 0, 1900552, 196622, 0, 1835017, 131086, 0, 1769481, 327694, 0, 1703946, 262158, 0, 2097154, 131095, 0, 1507329, 65537, 0, 1572865, 65537, 0, 1638400, 65537, 0, 1703936, 65537, 0, 1835007, 65537, 0, 1900543, 65537, 0, 1966078, 65537, 0, 2031615, 65537, 0, 2097151, 65537, 0, 2097152, 65537, 0, 2162688, 65537, 0, 2228225, 65537, 0, 2293761, 65537, 0, 2359298, 65537, 0, 2424834, 65537, 0, 2490371, 65537, 0, 2555907, 65537, 0, 2621444, 65537, 0, 2162695, 65537, 0, 2228231, 65537, 0, 2293766, 65537, 0, 2359302, 65537, 0, 2424837, 65537, 0, 2490373, 65537, 0, 2555908, 65537, 0, 1638401, 196631, 0, 2162693, 196631, 0, 2228230, 65559, 0, 2228228, 131095, 0, 2162692, 196631, 0, 2228229, 196631, 0, 2293764, 65559, 0, 2359300, 23, 0, 2293763, 131095, 0, 2228227, 65559, 0, 2162691, 131095, 0, 2162690, 131095, 0, 2228226, 131095, 0, 2162689, 131095, 0, 2097153, 65559, 0, 2031617, 131095, 0, 1966081, 65559, 0, 1900545, 196631, 0, 1835009, 196631, 0, 1769473, 23, 0, 1703937, 23, 0, 1769472, 65559, 0, 1835008, 196631, 0, 1966079, 23, 0, 1966080, 131095, 0, 1900544, 196631, 0, 2031616, 65559, 0, 2293762, 196631, 0, 2359299, 196631, 0, 2424835, 23, 0, 2490372, 65559, 0, 2424836, 196631, 0, 2359301, 23, 0, 2293765, 23, 0, 2162694, 65550, 0)
+
+[node name="Flag" parent="Map/Decorations" index="0"]
+position = Vector2(650, 630)
+model = 1
+
+[node name="Flag2" parent="Map/Decorations" index="1" instance=ExtResource("2_1mfau")]
+position = Vector2(1200, 600)
+model = 1
+
+[node name="Building" parent="Map/Decorations" index="2" instance=ExtResource("2_7anwg")]
+position = Vector2(900, 540)
+
+[node name="Building2" parent="Map/Decorations" index="3" instance=ExtResource("2_7anwg")]
+position = Vector2(1150, 390)
+
+[node name="NPC" parent="Mode_Explore" index="0"]
+position = Vector2(750, 870)
+
+[node name="Player" parent="Mode_Explore" index="1"]
+position = Vector2(690, 840)
+
+[node name="Area_Map" parent="Mode_Explore" index="2"]
+position = Vector2(550, 1050)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mode_Explore/Area_Map" index="0"]
+position = Vector2(100, -120)
+polygon = PackedVector2Array(-150, -60, 50, 60, 100, 30, -100, -90)
+
+[node name="Control" type="Control" parent="Mode_Explore" index="3"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Mode_Explore/Control" index="0"]
+z_index = 3
+layout_mode = 0
+offset_left = 790.0
+offset_top = 780.0
+offset_right = 1034.0
+offset_bottom = 839.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Tekan Enter 
+untuk bicara"
+
+[node name="Label2" type="Label" parent="Mode_Explore/Control" index="1"]
+z_index = 3
+layout_mode = 0
+offset_left = 370.0
+offset_top = 520.0
+offset_right = 632.0
+offset_bottom = 641.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Tekan Enter 
+dekat bendera 
+untuk memulai 
+misi"
+horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="Mode_Explore/Control" index="2"]
+z_index = 2
+layout_mode = 0
+offset_left = 470.0
+offset_top = 520.0
+offset_right = 640.0
+offset_bottom = 650.0
+color = Color(0.278431, 0.278431, 0.278431, 0.466667)
+
+[node name="ColorRect2" type="ColorRect" parent="Mode_Explore/Control" index="3"]
+z_index = 2
+layout_mode = 0
+offset_left = 780.0
+offset_top = 770.0
+offset_right = 930.0
+offset_bottom = 850.0
+color = Color(0.278431, 0.278431, 0.278431, 0.466667)
+
+[node name="Label" parent="Mode_Battle/Target/Camera2D" index="0"]
+z_index = 5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+
+[node name="Pion" parent="Mode_Battle" index="1"]
+position = Vector2(650, 690)
+
+[node name="Pion4" parent="Mode_Battle" index="2"]
+position = Vector2(1150, 690)
+
+[node name="Pion2" parent="Mode_Battle" index="3"]
+position = Vector2(1100, 660)
+character = 2
+
+[node name="Pion3" parent="Mode_Battle" index="4"]
+position = Vector2(850, 690)
+character = 1
+team = 0
+atk = 80
+
+[node name="Control" type="Control" parent="Mode_Battle" index="5"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect3" type="ColorRect" parent="Mode_Battle/Control" index="0"]
+z_index = 2
+layout_mode = 0
+offset_left = 410.0
+offset_top = 580.0
+offset_right = 620.0
+offset_bottom = 710.0
+color = Color(0.278431, 0.278431, 0.278431, 0.466667)
+
+[node name="ColorRect4" type="ColorRect" parent="Mode_Battle/Control" index="1"]
+z_index = 2
+layout_mode = 0
+offset_left = 890.0
+offset_top = 690.0
+offset_right = 1100.0
+offset_bottom = 820.0
+color = Color(0.278431, 0.278431, 0.278431, 0.466667)
+
+[node name="Label" type="Label" parent="Mode_Battle/Control" index="2"]
+z_index = 3
+layout_mode = 0
+offset_left = 900.0
+offset_top = 700.0
+offset_right = 1144.0
+offset_bottom = 790.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Klaim semua
+Bendera untuk 
+menyelesaikan misi"
+
+[node name="Label2" type="Label" parent="Mode_Battle/Control" index="3"]
+z_index = 3
+layout_mode = 0
+offset_left = 350.0
+offset_top = 600.0
+offset_right = 612.0
+offset_bottom = 721.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Klik pada karakter
+untuk memulai aksi
+--->"
+horizontal_alignment = 2
+
+[connection signal="flag_claim" from="Map/Decorations/Flag2" to="." method="_on_flag_flag_claim"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://jn0j8yun1ur6"]
+
+[ext_resource type="Texture2D" uid="uid://dgubhd6lbsrvp" path="res://Assets/Decorations/Temp_Asset-Building(1).png" id="1_nhcra"]
+
+[node name="Building" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 90, 150, 0, 0, -90, -150, 0)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -110)
+texture = ExtResource("1_nhcra")
