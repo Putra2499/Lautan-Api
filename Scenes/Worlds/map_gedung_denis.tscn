@@ -26,9 +26,6 @@ polygon = PackedVector2Array(-150, -60, 100, 90, 200, 30, -50, -120)
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Mode_Explore/Area_Map" index="1"]
 polygon = PackedVector2Array(200, 30, 300, 90, 550, -60, 450, -120)
 
-[node name="Mode_Battle" parent="." index="2"]
-visible = true
-
 [node name="Pion" parent="Mode_Battle" index="1"]
 position = Vector2(1650, 1170)
 

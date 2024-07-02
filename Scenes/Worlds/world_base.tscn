@@ -317,32 +317,6 @@ character = 2
 team = 2
 maxhp = 100
 
-[node name="Control" type="Control" parent="."]
-visible = false
-y_sort_enabled = true
-layout_mode = 3
-anchors_preset = 0
-offset_left = 50.0
-offset_top = -40.0
-offset_right = 90.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 1450.0
-offset_top = 610.0
-offset_right = 1556.0
-offset_bottom = 636.0
-text = "Mode Explore"
-
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 1440.0
-offset_top = 640.0
-offset_right = 1610.0
-offset_bottom = 671.0
-text = "Change Mode"
-
 [connection signal="flag_claim" from="Map/Decorations/Flag" to="." method="_on_flag_flag_claim"]
 [connection signal="Battle" from="Mode_Explore/Player" to="." method="_on_player_battle"]
 [connection signal="pressed" from="Mode_Explore/Player/PauseMenu/ExitButton" to="." method="_on_exit_button_pressed"]
@@ -353,4 +327,3 @@ text = "Change Mode"
 [connection signal="Attacked" from="Mode_Battle/Pion4" to="." method="_on_pion_attacked"]
 [connection signal="Attacked" from="Mode_Battle/Pion2" to="." method="_on_pion_attacked"]
 [connection signal="Attacked" from="Mode_Battle/Pion3" to="." method="_on_pion_attacked"]
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

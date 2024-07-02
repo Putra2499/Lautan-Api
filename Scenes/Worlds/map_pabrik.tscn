@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://crrwltuigi0dh"]
+[gd_scene load_steps=5 format=3 uid="uid://crrwltuigi0dh"]
 
 [ext_resource type="PackedScene" uid="uid://c3plxdludxsq7" path="res://Scenes/Worlds/world_base.tscn" id="1_xtnds"]
 [ext_resource type="PackedScene" uid="uid://b6o2a7nbc11hm" path="res://Scenes/Objects/flag.tscn" id="2_1mfau"]
 [ext_resource type="PackedScene" uid="uid://jn0j8yun1ur6" path="res://Scenes/Objects/building.tscn" id="2_7anwg"]
+[ext_resource type="PackedScene" uid="uid://d00eu5fvyayec" path="res://Scenes/Battle/pion.tscn" id="4_h0crp"]
 
 [node name="Map_Pabrik" instance=ExtResource("1_xtnds")]
 
@@ -107,7 +108,14 @@ character = 1
 team = 0
 atk = 80
 
-[node name="Control" type="Control" parent="Mode_Battle" index="5"]
+[node name="Pion5" parent="Mode_Battle" index="5" instance=ExtResource("4_h0crp")]
+position = Vector2(1000, 660)
+character = 3
+team = 2
+maxhp = 200
+atk = 80
+
+[node name="Control" type="Control" parent="Mode_Battle" index="6"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -159,3 +167,4 @@ untuk memulai aksi
 horizontal_alignment = 2
 
 [connection signal="flag_claim" from="Map/Decorations/Flag2" to="." method="_on_flag_flag_claim"]
+[connection signal="Attacked" from="Mode_Battle/Pion5" to="." method="_on_pion_attacked"]

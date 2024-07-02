@@ -53,7 +53,7 @@ func _on_target_object_here(obj):
 	if "Pion" in str(obj):
 		print("This is Pion")
 		pion_selected = true
-		obj.create_range()
+		obj.act()
 		temp_pion = obj
 	else :
 		print(str(obj))

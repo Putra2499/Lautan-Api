@@ -112,20 +112,19 @@ maxhp = null
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-20, 0, 0, 10, 20, 0, 0, -10)
 
-[node name="DetecArea" type="Area2D" parent="."]
-visible = false
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetecArea"]
-polygon = PackedVector2Array(-350, 0, 0, 210, 350, 0, 0, -210)
-
 [node name="Area2D" type="Area2D" parent="."]
 light_mask = 16
 visibility_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, 30, 50, 0, 0, -30, -50, 0)
+
+[node name="DetecArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetecArea"]
+polygon = PackedVector2Array(-350, 0, 0, 210, 350, 0, 0, -210)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 light_mask = 16
@@ -136,7 +135,7 @@ polygon = PackedVector2Array(0, 20, 40, 0, 0, -20, -40, 0)
 
 [node name="Point" type="Sprite2D" parent="Mark"]
 visible = false
-position = Vector2(-6.01853e-36, -87.3301)
+position = Vector2(-6.01853e-36, -88.3185)
 scale = Vector2(0.625, 0.833333)
 texture = ExtResource("2_ti1cf")
 hframes = 2
@@ -156,7 +155,7 @@ libraries = {
 position = Vector2(-1, -40)
 sprite_frames = SubResource("SpriteFrames_obe2c")
 animation = &"MC"
-frame_progress = 0.734474
+frame_progress = 0.856528
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -221,9 +220,13 @@ horizontal_alignment = 1
 [node name="DeadTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="DetecArea" to="." method="_on_detec_area_body_entered"]
+[node name="TurnTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="body_entered" from="DetecArea" to="." method="_on_detec_area_body_entered"]
 [connection signal="pressed" from="UI/Atk_Button" to="." method="_on_atk_button_pressed"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

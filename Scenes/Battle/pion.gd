@@ -2,12 +2,13 @@
 extends StaticBody2D
 
 enum Char {Player, Indo_Soilder, Japan_Soilder, Duch_Soilder}
+var char = ["Player", "Indo_Soilder", "Japan_Soilder", "Duch_Soilder"]
 @export var character : Char = Char.Player
 enum Team {Ally, MC, Enemy}
 @export var team : Team = Team.Ally
 var num = 1
 @export var speed = 3
-
+var attack_range = 10
 var tile_wide = 50
 var tile_high = 30
 
@@ -18,7 +19,8 @@ var hp = maxhp
 @export var atk = 30
 
 var nearby = []
-var nearest = $".".position
+var nearest
+var nearest_pos = Vector2(10000,10000)
 
 var turn = true
 var attacker
@@ -30,6 +32,9 @@ func _ready():
 	set_mark()
 	$Mark/Target.hide()
 	$UI/HP.text = str(hp)
+
+func pion():
+	pass
 
 func set_mark():
 	$Mark/AnimationPlayer.play("Floating_Mark")
@@ -55,17 +60,17 @@ func act():
 		else :
 			create_range()
 
+func Attack_Player():
+	nearby[nearest].attacked()
+
 func create_range():
-	if turn:
-		if team == Team.Enemy :
-			pass
-		else: 
-			for x in speed:
-				for y in speed:
-					if x == y and x == int((speed-1)/2):
-						pass
-					else:
-						inst(Vector2(tile_wide*(x-y),tile_high*(x+y-speed+1)))
+	for x in speed:
+		for y in speed:
+			if x == y and x == int((speed-1)/2):
+				pass
+			else:
+				inst(Vector2(tile_wide*(x-y),
+				tile_high*(x+y-speed+1)))
 
 func inst(pos):
 	var instance = range_area.instantiate()
@@ -94,9 +99,16 @@ func print_nearby():
 			print("Enemy "+nearby[i].name)
 		else :
 			print("Ally "+nearby[i].name)
-			nearest.x = max(float(nearby[i].position.x),float(nearest.x))
-			nearest.y = max(float(nearby[i].position.y),float(nearest.y))
-	print("---"+str(nearest))
+			nearest_pos.x = min(float(nearby[i].position.x),float(nearest_pos.x))
+			nearest_pos.y = min(float(nearby[i].position.y),float(nearest_pos.y))
+			if nearest_pos == nearby[i].position:
+				nearest = i
+	if nearest :
+		print("- Nearest at "
+		+str(nearby[nearest].name)
+		+" : "
+		+str(nearby[nearest].char[nearby[nearest].character]))
+	print("---")
 
 func targeted(body):
 	print(str(name)+" Targeted by "+str(body))
@@ -139,6 +151,9 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 				$Mark/Target.show()
 
 func _on_atk_button_pressed():
+	attacked()
+
+func attacked():
 	emit_signal("Attacked")
 	$AnimationPlayer.play("Attacked")
 	print(str($".".name)+" Attacked")
